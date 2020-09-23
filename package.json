@@ -50,5 +50,11 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,css,json,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
