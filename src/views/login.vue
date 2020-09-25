@@ -10,22 +10,22 @@
           <p>静态资源管理库</p>
         </div>
         <div class="login-form-account">
-          <a-form-model>
-            <a-form-model-item>
-              <a-input placeholder="用户名">
+          <a-form-model ref="loginForm" :rules="rules" :model="formData">
+            <a-form-model-item prop="userName">
+              <a-input v-model="formData.userName" placeholder="用户名">
                 <template v-slot:prefix>
                   <a-icon type="user" />
                 </template>
               </a-input>
             </a-form-model-item>
-            <a-form-model-item>
-              <a-input-password placeholder="密码">
+            <a-form-model-item prop="password">
+              <a-input-password v-model="formData.password" placeholder="密码">
                 <template v-slot:prefix>
                   <a-icon type="lock" />
                 </template>
               </a-input-password>
             </a-form-model-item>
-            <a-button type="primary" block>登录</a-button>
+            <a-button type="primary" block @click="signIn">登录</a-button>
           </a-form-model>
         </div>
       </div>
@@ -34,7 +34,42 @@
 </template>
 <script>
 export default {
-  name: 'login'
+  name: 'login',
+  data() {
+    return {
+      formData: {
+        userName: '',
+        password: ''
+      },
+      rules: {
+        userName: [
+          {
+            required: true,
+            message: '用户名不能为空',
+            trigger: 'blur'
+          }
+        ],
+        password: [
+          {
+            required: true,
+            message: '密码不能为空',
+            trigger: 'blur'
+          }
+        ]
+      }
+    }
+  },
+  methods: {
+    signIn() {
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          this.$message.success('登录成功', 1).then(() => {
+            console.error(valid)
+          })
+        }
+      })
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
