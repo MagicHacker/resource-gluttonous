@@ -2,10 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Button, Layout, Menu, Icon, FormModel, Input } from 'ant-design-vue'
-;[Button, Layout, Menu, Icon, FormModel, Input].forEach(item => {
+import {
+  Button,
+  Layout,
+  Menu,
+  Icon,
+  FormModel,
+  Input,
+  message
+} from 'ant-design-vue'
+;[Button, Layout, Menu, Icon, FormModel, Input, message].forEach(item => {
   Vue.use(item)
 })
+Vue.prototype.$message = message
 Vue.config.productionTip = false
 
 new Vue({
