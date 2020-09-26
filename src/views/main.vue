@@ -40,7 +40,7 @@ export default {
   name: 'mainComponent',
   data() {
     return {
-      collapsed: true
+      collapsed: false
     }
   },
   methods: {
@@ -57,6 +57,10 @@ export default {
   font-size: 16px;
   .main-header {
     background: #fff;
+    padding: 0px 30px;
+  }
+  li {
+    margin-top: 0px;
   }
 }
 </style>
