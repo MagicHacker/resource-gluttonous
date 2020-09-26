@@ -64,7 +64,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.$message.success('登录成功', 1).then(() => {
-            this.$router.replace({ path: '/main' })
+            this.$router.replace({ path: '/main/images' })
           })
         }
       })
