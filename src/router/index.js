@@ -23,6 +23,11 @@ const routes = [
         path: 'lotties',
         name: 'Lotties',
         component: () => import('../views/lotties.vue')
+      },
+      {
+        path: 'cdns',
+        name: 'Cdns',
+        component: () => import('../views/cdn.vue')
       }
     ]
   },

@@ -20,6 +20,12 @@
             <span>动效</span>
           </router-link>
         </a-menu-item>
+        <a-menu-item key="4">
+          <router-link to="/main/cdns">
+            <a-icon type="funnel-plot" />
+            <span>CDN</span>
+          </router-link>
+        </a-menu-item>
       </a-menu>
     </a-layout-sider>
     <a-layout>
