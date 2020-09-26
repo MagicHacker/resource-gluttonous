@@ -10,17 +10,17 @@ const routes = [
     component: () => import('../views/main.vue'),
     children: [
       {
-        path: '/images',
+        path: 'images',
         name: 'Images',
         component: () => import('../views/images.vue')
       },
       {
-        path: '/audios',
+        path: 'audios',
         name: 'Audios',
         component: () => import('../views/audios.vue')
       },
       {
-        path: '/lotties',
+        path: 'lotties',
         name: 'Lotties',
         component: () => import('../views/lotties.vue')
       }

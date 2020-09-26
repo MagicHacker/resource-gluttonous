@@ -3,19 +3,19 @@
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
       <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
         <a-menu-item key="1">
-          <router-link to="/images">
+          <router-link to="/main/images">
             <a-icon type="picture" />
             <span>图片</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="2">
-          <router-link to="/audios">
+          <router-link to="/main/audios">
             <a-icon type="audio" />
             <span>音频</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="3">
-          <router-link to="/lotties">
+          <router-link to="/main/lotties">
             <a-icon type="deployment-unit" />
             <span>动效</span>
           </router-link>
