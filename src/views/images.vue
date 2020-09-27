@@ -9,26 +9,28 @@
           <a-input placeholder="资源名"></a-input>
         </a-form-model-item>
         <a-form-model-item>
-          <a-button type="primary">搜索</a-button>
+          <a-button type="primary" @click="search">搜索</a-button>
         </a-form-model-item>
       </a-form-model>
     </div>
     <div class="images-add">
-      <a-button type="success">添加</a-button>
+      <a-button type="success" @click="addItem">添加</a-button>
     </div>
     <div class="images-table">
       <a-table bordered :data-source="tableData" :columns="columns">
         <template v-slot:action>
           <div class="images-table-action">
-            <a-button type="primary">详情</a-button>
-            <a-button type="danger">删除</a-button>
+            <a-button type="primary" @click="obtainDetail">详情</a-button>
+            <a-button type="danger" @click="deleteItem">删除</a-button>
           </div>
         </template>
       </a-table>
     </div>
+    <pop-modal ref="imagesModal"></pop-modal>
   </div>
 </template>
 <script>
+import popModal from '../components/pop-modal'
 export default {
   name: 'imagesComponent',
   data() {
@@ -68,6 +70,19 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    popModal
+  },
+  methods: {
+    search() {},
+    addItem() {
+      this.$refs.imagesModal.showModalFunc()
+    },
+    obtainDetail() {
+      this.$refs.imagesModal.showModalFunc()
+    },
+    deleteItem() {}
   }
 }
 </script>
