@@ -10,9 +10,10 @@ import {
   FormModel,
   Input,
   message,
-  Table
+  Table,
+  Modal
 } from 'ant-design-vue'
-;[Button, Layout, Menu, Icon, FormModel, Input, message, Table].forEach(
+;[Button, Layout, Menu, Icon, FormModel, Input, message, Table, Modal].forEach(
   item => {
     Vue.use(item)
   }
