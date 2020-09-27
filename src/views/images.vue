@@ -18,9 +18,11 @@
     </div>
     <div class="images-table">
       <a-table bordered :data-source="tableData" :columns="columns">
-        <template v-slot:action>
+        <template #action="text, record">
           <div class="images-table-action">
-            <a-button type="primary" @click="obtainDetail">详情</a-button>
+            <a-button type="primary" @click="obtainDetail(record)"
+              >详情</a-button
+            >
             <a-button type="danger" @click="deleteItem">删除</a-button>
           </div>
         </template>
@@ -79,8 +81,9 @@ export default {
     addItem() {
       this.$refs.imagesModal.showModalFunc()
     },
-    obtainDetail() {
+    obtainDetail(record) {
       this.$refs.imagesModal.showModalFunc()
+      console.warn('宁德时代', record)
     },
     deleteItem() {}
   }
