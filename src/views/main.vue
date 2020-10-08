@@ -34,6 +34,7 @@
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="menuTrigger"
         ></a-icon>
+        <div class="main-header-title">{{ headerTitle }}</div>
       </a-layout-header>
       <a-layout-content>
         <router-view></router-view>
@@ -46,9 +47,22 @@ export default {
   name: 'mainComponent',
   data() {
     return {
-      collapsed: false
+      collapsed: false,
+      titleHash: {
+        images: '图片',
+        audios: '音频',
+        lotties: '动效',
+        cdns: 'CDN'
+      }
     }
   },
+  computed: {
+    headerTitle() {
+      const key = this.$route.path.match(/^\/.*\/(.*)/)
+      return this.titleHash[key[1]]
+    }
+  },
+  mounted() {},
   methods: {
     menuTrigger() {
       this.collapsed = !this.collapsed
@@ -64,6 +78,11 @@ export default {
   .main-header {
     background: #fff;
     padding: 0px 30px;
+    .main-header-title {
+      display: inline-block;
+      margin-left: 20px;
+      font-weight: bold;
+    }
   }
   li {
     margin-top: 0px;
