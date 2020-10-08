@@ -102,7 +102,9 @@ export default {
       this.collapsed = !this.collapsed
     },
     logout() {
-      alert(1)
+      this.$message.success('退出登录成功', 1).then(() => {
+        this.$router.replace({ path: '/login' })
+      })
     }
   }
 }
