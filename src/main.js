@@ -11,13 +11,25 @@ import {
   Input,
   message,
   Table,
-  Modal
+  Modal,
+  Badge,
+  Popover
 } from 'ant-design-vue'
-;[Button, Layout, Menu, Icon, FormModel, Input, message, Table, Modal].forEach(
-  item => {
-    Vue.use(item)
-  }
-)
+;[
+  Button,
+  Layout,
+  Menu,
+  Icon,
+  FormModel,
+  Input,
+  message,
+  Table,
+  Modal,
+  Badge,
+  Popover
+].forEach(item => {
+  Vue.use(item)
+})
 Vue.prototype.$message = message
 Vue.config.productionTip = false
 
