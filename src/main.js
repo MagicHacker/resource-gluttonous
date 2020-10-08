@@ -13,7 +13,8 @@ import {
   Table,
   Modal,
   Badge,
-  Popover
+  Popover,
+  List
 } from 'ant-design-vue'
 ;[
   Button,
@@ -26,7 +27,8 @@ import {
   Table,
   Modal,
   Badge,
-  Popover
+  Popover,
+  List
 ].forEach(item => {
   Vue.use(item)
 })
