@@ -35,6 +35,30 @@
           @click="menuTrigger"
         ></a-icon>
         <div class="main-header-title">{{ headerTitle }}</div>
+        <div class="main-header-right">
+          <a-popover v-model="unRead" trigger="click">
+            <template v-slot:content>
+              <a-list item-layout="horizontal" :data-source="unReadData">
+                <template #renderItem="item">
+                  <a-list-item>{{ item }}</a-list-item>
+                </template>
+              </a-list>
+            </template>
+            <a-badge count="5">
+              <a-icon type="bell" :style="{ fontSize: '26px' }" />
+            </a-badge>
+          </a-popover>
+          <a-popover v-model="personManage" trigger="click">
+            <template v-slot:content>
+              <a-list item-layout="horizontal" :data-source="personControlData">
+                <template #renderItem="item">
+                  <a-list-item @click.native="logout">{{ item }}</a-list-item>
+                </template>
+              </a-list>
+            </template>
+            <a-icon type="appstore" :style="{ fontSize: '26px' }" />
+          </a-popover>
+        </div>
       </a-layout-header>
       <a-layout-content>
         <router-view></router-view>
@@ -53,7 +77,17 @@ export default {
         audios: '音频',
         lotties: '动效',
         cdns: 'CDN'
-      }
+      },
+      unRead: false,
+      personManage: false,
+      unReadData: [
+        'Racing car sprays burning fuel into crowd.',
+        'Japanese princess to wed commoner.',
+        'Australian walks 100km after outback crash.',
+        'Man charged over missing wedding girl.',
+        'Los Angeles battles huge wildfires.'
+      ],
+      personControlData: ['退出登录']
     }
   },
   computed: {
@@ -66,6 +100,9 @@ export default {
   methods: {
     menuTrigger() {
       this.collapsed = !this.collapsed
+    },
+    logout() {
+      alert(1)
     }
   }
 }
@@ -78,10 +115,22 @@ export default {
   .main-header {
     background: #fff;
     padding: 0px 30px;
+    position: relative;
     .main-header-title {
       display: inline-block;
       margin-left: 20px;
       font-weight: bold;
+    }
+    .main-header-right {
+      width: 160px;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      right: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
     }
   }
   li {
