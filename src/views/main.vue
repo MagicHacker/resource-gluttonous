@@ -36,7 +36,11 @@
         ></a-icon>
         <div class="main-header-title">{{ headerTitle }}</div>
         <div class="main-header-right">
-          <a-popover v-model="unRead" trigger="click">
+          <a-popover
+            v-model="unRead"
+            trigger="click"
+            @visibleChange="popoverChange"
+          >
             <template v-slot:content>
               <a-list item-layout="horizontal" :data-source="unReadData">
                 <template #renderItem="item">
@@ -44,7 +48,7 @@
                 </template>
               </a-list>
             </template>
-            <a-badge count="5">
+            <a-badge :count="badgeCount">
               <a-icon type="bell" :style="{ fontSize: '26px' }" />
             </a-badge>
           </a-popover>
@@ -87,7 +91,8 @@ export default {
         'Man charged over missing wedding girl.',
         'Los Angeles battles huge wildfires.'
       ],
-      personControlData: ['退出登录']
+      personControlData: ['退出登录'],
+      badgeCount: 5
     }
   },
   computed: {
@@ -105,6 +110,11 @@ export default {
       this.$message.success('退出登录成功', 1).then(() => {
         this.$router.replace({ path: '/login' })
       })
+    },
+    popoverChange(visible) {
+      if (visible) {
+        this.badgeCount = 0
+      }
     }
   }
 }
