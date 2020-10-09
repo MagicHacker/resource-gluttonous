@@ -1,18 +1,15 @@
 <template>
   <div class="lotties-wrapper">
-    <div class="lotties-search">
-      <a-form-model layout="inline">
+    <common-search>
+      <template v-slot:searchOptions>
         <a-form-model-item label="项目">
           <a-input placeholder="项目名称"></a-input>
         </a-form-model-item>
         <a-form-model-item label="资源名">
           <a-input placeholder="资源名"></a-input>
         </a-form-model-item>
-        <a-form-model-item>
-          <a-button type="primary">搜索</a-button>
-        </a-form-model-item>
-      </a-form-model>
-    </div>
+      </template>
+    </common-search>
     <div class="lotties-add">
       <a-button type="success">添加</a-button>
     </div>
@@ -29,6 +26,7 @@
   </div>
 </template>
 <script>
+import commonSearch from '../components/common-search'
 export default {
   name: 'lottiesComponent',
   data() {
@@ -68,6 +66,9 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    commonSearch
   }
 }
 </script>
@@ -76,10 +77,6 @@ export default {
   width: 100%;
   height: 100%;
   padding: 20px 0px 0px 30px;
-  .lotties-search {
-    width: 100%;
-    height: 60px;
-  }
   .lotties-add {
     width: 100%;
     height: 50px;
