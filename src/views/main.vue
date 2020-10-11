@@ -1,26 +1,26 @@
 <template>
   <a-layout class="layout-wrap">
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-      <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-        <a-menu-item key="1">
+      <a-menu theme="dark" mode="inline" :default-selected-keys="defaultKey">
+        <a-menu-item key="images">
           <router-link to="/main/images">
             <a-icon type="picture" />
             <span>图片</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="audios">
           <router-link to="/main/audios">
             <a-icon type="audio" />
             <span>音频</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="lotties">
           <router-link to="/main/lotties">
             <a-icon type="deployment-unit" />
             <span>动效</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="4">
+        <a-menu-item key="cdns">
           <router-link to="/main/cdns">
             <a-icon type="funnel-plot" />
             <span>CDN</span>
@@ -99,6 +99,10 @@ export default {
     headerTitle() {
       const key = this.$route.path.match(/^\/.*\/(.*)/)
       return this.titleHash[key[1]]
+    },
+    defaultKey() {
+      const key = this.$route.path.match(/^\/.*\/(.*)/)
+      return [key[1]]
     }
   },
   mounted() {},
