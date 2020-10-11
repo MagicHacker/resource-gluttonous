@@ -2,7 +2,7 @@
   <div class="lotties-wrapper">
     <common-search>
       <template v-slot:searchOptions>
-        <a-form-model-item label="项目">
+        <a-form-model-item label="项目名">
           <a-input placeholder="项目名称"></a-input>
         </a-form-model-item>
         <a-form-model-item label="资源名">
